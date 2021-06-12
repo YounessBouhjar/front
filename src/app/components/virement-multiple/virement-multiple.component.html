@@ -47,14 +47,14 @@
                 <h4>Date de création :</h4>
                 <mat-form-field appearance="fill">
                     
-                    <input matInput [matDatepicker]="picker1" [value]="dateCre.value" formControlName="dateCre">
+                    <input matInput [matDatepicker]="picker1" [value]="dateCre.value" formControlName="dateCre" disabled>
                     <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
                     <mat-datepicker #picker1></mat-datepicker>
                 </mat-form-field>
                 
             </mat-grid-tile>
             
-            <mat-grid-tile>
+            <!-- <mat-grid-tile>
                 <h4>Date d'exécution : </h4>
                 <mat-form-field appearance="fill">
                 <mat-label>Value binding</mat-label>
@@ -62,7 +62,7 @@
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
-            </mat-grid-tile>
+            </mat-grid-tile> -->
     
             <mat-grid-tile>
                 <h4>Motif : </h4>
@@ -100,7 +100,11 @@
 
 
 </div>
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
+
 </div>
 </div>
 </div>
 </div>
+
+

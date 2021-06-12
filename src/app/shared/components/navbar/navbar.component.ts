@@ -19,7 +19,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public isCollapsed = true;
 
   closeResult: string;
-
+  logOut() {
+    sessionStorage.removeItem('username');
+    sessionStorage.clear()
+    console.log("loggeed out")
+  }
   constructor(
     location: Location,
     private element: ElementRef,

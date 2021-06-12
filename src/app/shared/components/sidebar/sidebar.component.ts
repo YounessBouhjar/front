@@ -95,6 +95,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  currentClientName=sessionStorage.getItem('name')
 
   constructor() {}
 

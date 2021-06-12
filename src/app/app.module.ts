@@ -55,6 +55,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { MatNativeDateModule } from '@angular/material/core';
+import { InterceptorService } from "./components/loading/interceptor.service";
 
 @NgModule({
 
@@ -127,12 +128,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     MatNativeDateModule,
   ],
-    
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: BasicAuthHtppInterceptorService,
     multi: true,
-    }],
+    },{provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
