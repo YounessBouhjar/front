@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Client } from 'src/app/client/module/client.module';
+import { TestBed } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class LoginServiceService {
         map((userData) => {
           sessionStorage.setItem('username', username);
         
+          sessionStorage.setItem('cryptedPass',btoa(password));
           sessionStorage.setItem('name', userData.nom);
 
           sessionStorage.setItem('currentClientId', userData.id.toString());
