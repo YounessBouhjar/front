@@ -388,6 +388,10 @@ compterfound=false;
         buttonsStyling: false
       })
       CheckPass(){
+        this.onSubmit()
+        console.log(!this.benef)
+        console.log(!this.ifMontant)
+        if(!this.benef || !this.ifMontant){ 
         Swal.fire({
           title: 'Confirmez Votre MDP',
           input: 'text',
@@ -415,6 +419,7 @@ compterfound=false;
             )
           }
         })
+      }
       }
 
 

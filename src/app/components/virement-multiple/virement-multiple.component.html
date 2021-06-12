@@ -23,7 +23,7 @@
             </div>
         
     
-            <form [formGroup]="formValue" (ngSubmit)="onSubmit()" class="form">
+            <form [formGroup]="formValue" class="form">
     
         <mat-grid-list  cols="2" rowHeight="8:1">
     
@@ -94,7 +94,7 @@
                     </mat-form-field>
             </mat-grid-tile>
         </mat-grid-list>
-        <button mat-raised-button color="primary" (click)="CheckPass()">Primary</button>
+        <button mat-raised-button color="primary" (click)="CheckPass()" >Primary</button>
     
     </form>
 
