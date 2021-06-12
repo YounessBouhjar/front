@@ -1,0 +1,34 @@
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header"></div>
+          <div class=" card-body">
+
+
+
+        <h1>Les virements de , {{ currentClientName }}</h1>
+<table id="table" >
+<thead>
+    <tr><th>id</th><th>creancier</th><th>debiteur</th><th>Envoyé</th><th>reçu</th><th>date</th></tr>
+</thead>
+<tbody>
+    <tr *ngFor="let data of virement">
+        <td>{{data.id}}</td>
+        <td>{{data.creancier.numero}}</td>
+        <td>{{data.debiteur.numero}}</td>
+        <td>{{data.sommeEnv}} </td>
+        <td>{{data.sommeRecu}}</td>
+        <td>{{data.date  | date }}</td>
+    </tr>
+</tbody>
+
+</table>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>

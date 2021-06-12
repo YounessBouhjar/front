@@ -1,0 +1,46 @@
+/* Column Gap */
+/* Item sizing */
+/*.cardList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	>* {
+		box-sizing: border-box;
+		&:not(:last-child) {
+			margin-right: 32px;
+		}
+	}
+}
+.cardListItem {
+	flex: 0 1 calc(33.3% - 32px);
+}
+.wrapper {
+	display: inline-block;
+	margin-top: 60px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-top: 0px;
+	width: 100%;
+}
+#main-content {
+	margin-left: 210px;
+}
+.form__field {
+	margin-bottom: 1rem;
+	
+  }
+  .form input {
+	outline: 0;
+	padding: 0.5rem 1rem;
+	width: 100%;
+  }
+  
+
+  .centering{
+	  margin-top:50px;
+	  margin-bottom: 50px;
+	  padding-right: 10px;
+  }
+*/
