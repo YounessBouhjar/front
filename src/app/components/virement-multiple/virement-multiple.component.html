@@ -94,7 +94,7 @@
                     </mat-form-field>
             </mat-grid-tile>
         </mat-grid-list>
-        <button mat-raised-button color="primary" (click)="CheckPass()" >Primary</button>
+        <button  [disabled]="formValue.invalid" mat-raised-button color="primary" (click)="CheckPass()" >Primary</button>
     
     </form>
 

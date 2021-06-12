@@ -365,8 +365,8 @@ compterfound=false;
       return this.formValue.get('montant');
     }
 
-    ifBenef:boolean
-    ifMontant:boolean
+    ifBenef=false
+    ifMontant=false
       onSubmit(){
         var sumMontant:number = this.result.map(a => parseFloat(a.montant)).reduce(function(a, b){return a + b;});
         console.log(sumMontant)
@@ -393,9 +393,8 @@ compterfound=false;
       })
       CheckPass(){
         this.onSubmit()
-        console.log(!this.benef)
-        console.log(!this.ifMontant)
-        if(!this.benef || !this.ifMontant){ 
+      console.log(this.formValue.invalid)
+        if(!this.ifBenef || !this.ifMontant ){ 
         Swal.fire({
           title: 'Confirmez Votre MDP',
           input: 'text',

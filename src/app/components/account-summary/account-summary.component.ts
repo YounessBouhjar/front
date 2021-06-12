@@ -72,7 +72,7 @@ export class AccountSummaryComponent implements OnInit {
   }
   onSubmit(viremeent : any) {
     
-    
+
       console.log("blablo  " +viremeent.creancier);
       this.accountservice.findAccountNum(viremeent.creancier).subscribe(
         (data) => {
@@ -97,14 +97,15 @@ export class AccountSummaryComponent implements OnInit {
               this.virementservice.save(this.virement).subscribe(
                 (response: VirementsModule) => {
                   console.log(response);
-                  this.modalReference2.close();
+       
+     
                   this.modalReference.close();
                   this.successAlertNotification();
                   
                 },
                 (error: HttpErrorResponse) => {
                   alert(error.message);
-                  this.modalReference2.close();
+                
                 
                 }
               );
@@ -148,8 +149,6 @@ export class AccountSummaryComponent implements OnInit {
 
 
     }
-    open2(content) {
-      this.modalReference2 = this.modalService2.open(content);
-    }
+
   
 }
