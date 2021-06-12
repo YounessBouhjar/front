@@ -10,6 +10,7 @@ import { VirementsService } from 'src/app/virements/service/virements.service';
 
 import { HttpErrorResponse } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { LoadingService } from '../loading/loading.service';
 
 @Component({
   selector: 'app-account-summary',
@@ -33,8 +34,11 @@ export class AccountSummaryComponent implements OnInit {
   creancier:Accounts;
   sommeenvoye:string;
   confirm = false;
+  
+  loading$ = this.loader.loading$;
 
-  constructor(private clientService: ClientService,
+  constructor(private clientService: ClientService,public loader:LoadingService,
+
     private accountservice : AccountService,
     private virementservice : VirementsService,
     config: NgbModalConfig, private modalService: NgbModal,private modalService2: NgbModal

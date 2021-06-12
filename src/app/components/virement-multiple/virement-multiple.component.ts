@@ -9,6 +9,7 @@ import { BeneficiaireService } from 'src/app/beneficiaire/service/beneficiaire.s
 import { ClientService } from 'src/app/client/service/client.service';
 import { VirementsService } from 'src/app/virements/service/virements.service';
 import Swal from 'sweetalert2';
+import { LoadingService } from '../loading/loading.service';
 
 
 interface Compte {
@@ -41,7 +42,10 @@ export class VirementMultipleComponent implements OnInit {
   currentClientName: string;
   benef: BeneficiaireModule[];
   currentClientUsername: string;
-  constructor( private accountService:AccountService, private benefService:BeneficiaireService,private clientService:ClientService,
+  loading$ = this.loader.loading$;
+
+  constructor(public loader:LoadingService
+,    private accountService:AccountService, private benefService:BeneficiaireService,private clientService:ClientService,
     private virementService: VirementsService) { 
     this.source = new LocalDataSource(this.data);
   }

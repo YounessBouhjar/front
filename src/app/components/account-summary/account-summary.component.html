@@ -106,9 +106,13 @@
               </ng-template>
 
           </div>
+          <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
+
         </div>
       </div>
     </div>
   </div>
+
+
 
     
