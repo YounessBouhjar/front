@@ -374,12 +374,15 @@ compterfound=false;
           this.ifBenef=true;
           console.log('warah mkhtalfin')          
         }
+        else{
+ 
+          this.ifBenef=false;}
         if(this.formValue.value.montant != sumMontant){
           this.ifMontant = true;
         }
         else{
           this.ifMontant = false;
-          this.ifBenef=false;
+
           console.log(this.formValue.value)
 
         }
@@ -394,7 +397,7 @@ compterfound=false;
       CheckPass(){
         this.onSubmit()
       console.log(this.formValue.invalid)
-        if(!this.ifBenef || !this.ifMontant ){ 
+        if(!this.ifBenef && !this.ifMontant ){ 
         Swal.fire({
           title: 'Confirmez Votre MDP',
           input: 'text',
