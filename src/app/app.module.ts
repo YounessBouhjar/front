@@ -56,6 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InterceptorService } from "./components/loading/interceptor.service";
+import { AppointmentComponent } from "./components/appointment/appointment.component";
 
 @NgModule({
 
@@ -68,7 +69,7 @@ import { InterceptorService } from "./components/loading/interceptor.service";
     AccountSummaryComponent,
     VirementsTabComponent,
     VirementMultipleComponent,
-
+    AppointmentComponent,
 
   ],
 

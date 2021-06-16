@@ -1,0 +1,52 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header"></div>
+        <div class=" card-body">
+
+
+        <form #f="ngForm" [formGroup]="Form">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">motif</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="motif" ></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="onAddAppointment(f.value)">Submit</button>
+              </div>
+          </form> 
+   
+
+
+<h1>mes rendez-vous</h1>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id </th>
+        <th scope="col">motif</th>
+        <th scope="col">date demande</th>
+        <th scope="col">status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{appointment.id}}</td>
+        <td>{{appointment.motif}}</td>
+        <td>{{ appointment.dateDemande | date:'short' }}</td>
+        <td>{{appointment.status}}</td>
+
+
+  
+
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
