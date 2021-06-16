@@ -10,12 +10,14 @@ import { TypographyComponent } from "../../pages/typography/typography.component
 import { AccountSummaryComponent } from "src/app/components/account-summary/account-summary.component";
 import { VirementsTabComponent } from "src/app/components/virements-tab/virements-tab.component";
 import { VirementMultipleComponent } from "src/app/components/virement-multiple/virement-multiple.component";
+import { AppointmentComponent } from "src/app/components/appointment/appointment.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: 'overview', component: AccountSummaryComponent},
   { path: 'compte/:id/virements', component: VirementsTabComponent},
   { path: 'vm', component: VirementMultipleComponent},
+  { path: 'appointment', component: AppointmentComponent},
   { path: "dashboard", component: DashboardComponent },
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapComponent },
