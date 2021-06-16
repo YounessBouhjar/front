@@ -399,30 +399,22 @@ compterfound=false;
         buttonsStyling: false
       })
 
+
+      
       vm={
         debiteur: {
             id: 0
         },
         sommeEnv: 0,
-        vmb: [
+        vmb: [ 
           {
               beneficiaire: {
                   numeroCompte: ''
               },
-              montant: 0
+              montant: 0 
           }
       ]
-        
     }
-
-
-    
-      virementMultiple:VirementMultiple
-      virementNumerofind:number
-     
-      debiteur ={
-        id:''
-      }
 
       CheckPass(){
         this.onSubmit()
@@ -433,7 +425,7 @@ compterfound=false;
           input: 'text',
          
           showCancelButton: true,
-          confirmButtonText: 'Look up',
+          confirmButtonText: 'OK',
         
          
         }).then((valeur) => {
@@ -442,17 +434,14 @@ compterfound=false;
              
             this.accountService.findAccountNum(this.formValue.value.select).subscribe(
               response => {
-                this.virementNumerofind = response.id
-                this.debiteur.id = response.id.toString()
                 this.vm.debiteur.id = response.id
-                this.vm.sommeEnv = this.formValue.value.montant;
-                //hna lprob
-                this.vm.vmb = this.result.map(varr => ({ beneficiaire : varr.numeroCompte, montant: parseFloat(varr.montant) }));
+                this.vm.sommeEnv = this.formValue.value.montant;               
+                this.vm.vmb = this.result.map(varr => ({ beneficiaire: { numeroCompte: varr.numeroCompte }, montant: parseFloat(varr.montant) }));
                 console.log(this.vm)
                 this.vmService.saveVirementMultiple(this.vm).subscribe(
                   res => {
                     console.log(res);
-                    console.log('fkhaaaaaaaaaaaater j3IIIIIIIIIIIIIIIIIDI')
+                    console.log('fkhaaaaaaaater j3iidii')
                   },
                   (error:HttpErrorResponse)=>{
                     console.log(error)
