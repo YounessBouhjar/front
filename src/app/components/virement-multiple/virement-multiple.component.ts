@@ -7,6 +7,9 @@ import { AccountService } from 'src/app/account/service/account.service';
 import { BeneficiaireModule } from 'src/app/beneficiaire/module/beneficiaire/beneficiaire.module';
 import { BeneficiaireService } from 'src/app/beneficiaire/service/beneficiaire.service';
 import { ClientService } from 'src/app/client/service/client.service';
+import { VirementMultiple } from 'src/app/virements/module/virement-multiple';
+import { Vmb } from 'src/app/virements/module/vmb';
+import { VirementMultipleService } from 'src/app/virements/service/virement-multiple.service';
 import { VirementsService } from 'src/app/virements/service/virements.service';
 import Swal from 'sweetalert2';
 import { LoadingService } from '../loading/loading.service';
@@ -46,7 +49,8 @@ export class VirementMultipleComponent implements OnInit {
 
   constructor(public loader:LoadingService
 ,    private accountService:AccountService, private benefService:BeneficiaireService,private clientService:ClientService,
-    private virementService: VirementsService) { 
+    private virementService: VirementsService,
+    private vmService:VirementMultipleService) { 
     this.source = new LocalDataSource(this.data);
   }
 
@@ -263,7 +267,7 @@ compterfound=false;
                (error:HttpErrorResponse) => {
                 console.log(error)
                 
-                });   
+                });
               
             }
           })
@@ -394,6 +398,32 @@ compterfound=false;
         },
         buttonsStyling: false
       })
+
+      vm={
+        debiteur: {
+            id: 0
+        },
+        sommeEnv: 0,
+        vmb: [
+          {
+              beneficiaire: {
+                  numeroCompte: ''
+              },
+              montant: 0
+          }
+      ]
+        
+    }
+
+
+    
+      virementMultiple:VirementMultiple
+      virementNumerofind:number
+     
+      debiteur ={
+        id:''
+      }
+
       CheckPass(){
         this.onSubmit()
       console.log(this.formValue.invalid)
@@ -409,8 +439,33 @@ compterfound=false;
         }).then((valeur) => {
          
           if(valeur.value === atob(sessionStorage.getItem('cryptedPass'))){
-            console.log('good pass')
-            // hna j3aydiiiiiiiiiiiiiiiiiiiiiiiiiii
+             
+            this.accountService.findAccountNum(this.formValue.value.select).subscribe(
+              response => {
+                this.virementNumerofind = response.id
+                this.debiteur.id = response.id.toString()
+                this.vm.debiteur.id = response.id
+                this.vm.sommeEnv = this.formValue.value.montant;
+                //hna lprob
+                this.vm.vmb = this.result.map(varr => ({ beneficiaire : varr.numeroCompte, montant: parseFloat(varr.montant) }));
+                console.log(this.vm)
+                this.vmService.saveVirementMultiple(this.vm).subscribe(
+                  res => {
+                    console.log(res);
+                    console.log('fkhaaaaaaaaaaaater j3IIIIIIIIIIIIIIIIIDI')
+                  },
+                  (error:HttpErrorResponse)=>{
+                    console.log(error)
+                  }
+                )
+           
+              },
+              (error:HttpErrorResponse) =>{
+                console.log(error)
+              }
+            )
+            
+
             this.swalWithBootstrapButtons.fire(
               'Transaction Envoyé!',
               '',
@@ -428,7 +483,9 @@ compterfound=false;
       }
       }
 
+      
 
+      
 
 
       }
